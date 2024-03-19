@@ -11,7 +11,7 @@ import SwiftUI
 struct Module8App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ImagePicker()
         }
     }
 }

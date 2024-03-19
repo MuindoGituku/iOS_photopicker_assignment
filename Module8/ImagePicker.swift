@@ -132,10 +132,16 @@ struct HistorySheet: View {
                             Image(uiImage: state.images[index])
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+                                .frame(maxWidth: .infinity)
                                 .padding()
-                                .onTapGesture {
-                                    state.images.remove(at: index)
+                                .overlay {
+                                    Image(systemName: "xmark.bin.circle.fill")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 100, height: 100)
+                                        .onTapGesture {
+                                            state.images.remove(at: index)
+                                        }
                                 }
                         }
                     }
@@ -148,8 +154,14 @@ struct HistorySheet: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .onTapGesture {
-                                state.images.remove(at: index)
+                            .overlay {
+                                Image(systemName: "xmark.bin.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 100)
+                                    .onTapGesture {
+                                        state.images.remove(at: index)
+                                    }
                             }
                     }
                 }
